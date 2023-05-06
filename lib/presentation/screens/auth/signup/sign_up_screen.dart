@@ -58,6 +58,7 @@ class SignUpScreen extends StatelessWidget {
                     ));
                   }
                 },
+                buildWhen: (oldState , newState) => newState is AuthSignUpState,
                 builder: (context, state) {
                   return state is AuthSignUpLoadingState
                       ? const Center(
