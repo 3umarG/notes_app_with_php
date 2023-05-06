@@ -1,5 +1,5 @@
 abstract class ApiConstants{
-  static const  String _baseUrl = "http://192.168.1.40/note_app";
+  static const  String _baseUrl = "http://192.168.1.40:8080/note_app";
 
   static const String signUpPath = "$_baseUrl/auth/signup.php";
   static const String signInPath = "$_baseUrl/auth/signin.php";

@@ -7,6 +7,8 @@ import '../../../widgets/text_form_fields/custom_text_form_field.dart';
 class SignInScreen extends StatelessWidget {
    SignInScreen({Key? key}) : super(key: key);
 final formKey = GlobalKey<FormState>();
+final emailCont  = TextEditingController();
+final passwordCont  = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +21,12 @@ final formKey = GlobalKey<FormState>();
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const CustomTextFormField(
+               CustomTextFormField(
+              controller: emailCont,
                   hint: "email address", icon: Icons.email),
-              const CustomTextFormField(hint: "password", icon: Icons.lock),
+               CustomTextFormField(
+                   controller: passwordCont,
+                   hint: "password", icon: Icons.lock),
               const SizedBox(
                 height: 20,
               ),

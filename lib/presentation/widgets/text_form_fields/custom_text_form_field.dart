@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({Key? key, required this.hint, required this.icon})
+  const CustomTextFormField(
+      {Key? key,
+      required this.hint,
+      required this.icon,
+      required this.controller})
       : super(key: key);
 
+  final TextEditingController controller;
   final String hint;
   final IconData icon;
 
@@ -12,19 +17,20 @@ class CustomTextFormField extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(4),
       child: TextFormField(
-
-        validator: (value){
-          if(value == null || value.isEmpty){
+        controller: controller,
+        validator: (value) {
+          if (value == null || value.isEmpty) {
             return "$hint shouldn't be empty";
-          }else {
-          return null;
+          } else {
+            return null;
           }
         },
         autovalidateMode: AutovalidateMode.onUserInteraction,
         cursorColor: Colors.deepPurple,
         decoration: InputDecoration(
           hintText: hint,
-          contentPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
