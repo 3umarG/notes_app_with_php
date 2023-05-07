@@ -24,15 +24,15 @@ class AppRouter {
         );
       case AppRoutes.signUpScreenRoute:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (_) => authCubit,
+          builder: (_) => BlocProvider.value(
+            value : authCubit,
             child: SignUpScreen(),
           ),
         );
       case AppRoutes.signInScreenRoute:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (_) => authCubit,
+          builder: (_) => BlocProvider.value(
+            value: authCubit,
             child: SignInScreen(),
           ),
         );

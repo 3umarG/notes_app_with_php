@@ -76,7 +76,7 @@ class ApiServices extends BaseApiServices {
           throw ResponseException(responseBody["message"], response.statusCode);
         } else {
           /// Your Request was Successful , do all your stuff here ...
-          debugPrint("Your Signup was Successful !!!");
+          debugPrint("Your Login was Successful !!!");
         }
       } else if (response.statusCode.toString()[0] == "4") {
         throw ClientException(
