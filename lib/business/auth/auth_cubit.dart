@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
+import 'package:notes_app_with_php/data/models/auth/sign_in_model.dart';
 import 'package:notes_app_with_php/data/models/auth/sign_up_model.dart';
 import 'package:notes_app_with_php/data/repository/note_repository.dart';
 
@@ -19,6 +20,19 @@ class AuthCubit extends Cubit<AuthState> {
       },
       (successVoid) {
         emit(AuthSignUpSuccessState());
+      },
+    );
+  }
+
+  Future<void> login(SignInModel signInModel) async {
+    emit(AuthLoginLoadingState());
+    final res = await repository.login(signInModel);
+    res.fold(
+      (failure) {
+        emit(AuthLoginErrorState(failure.message));
+      },
+      (successVoid) {
+        emit(AuthLoginSuccessState());
       },
     );
   }

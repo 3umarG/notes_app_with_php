@@ -12,3 +12,11 @@ class AuthSignUpErrorState extends AuthSignUpState{
   final String message;
   AuthSignUpErrorState(this.message);
 }
+
+abstract class AuthLoginState extends AuthState{}
+class AuthLoginLoadingState extends AuthLoginState{}
+class AuthLoginSuccessState extends AuthLoginState{}
+class AuthLoginErrorState extends AuthLoginState{
+  final String message;
+  AuthLoginErrorState(this.message);
+}
